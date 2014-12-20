@@ -2,7 +2,7 @@
 
 # Create container
 echo "Creating DerbyDB container ..."
-docker build --rm -q -t plopezse/Derby ./docker
+docker build --rm -q -t bsaunder/derby_10.10.1.1 ./docker
 
 if [ $? -eq 0 ]; then
     echo "Container build"
