@@ -1,5 +1,1 @@
-installs/
-installs/*
-*/installs
-
-installers/*
+*.zip
