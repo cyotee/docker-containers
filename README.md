@@ -11,9 +11,9 @@ Additional Installation Instructions can be found [here](https://docs.docker.com
 ## Usage
 All of the included containers come with a set of 3 shell scripts for controlling them. 
 
-- install.sh Builds the container
-- start.sh Starts the container
-- stop.sh Stops the container
+- **build.sh** Builds the container
+- **start.sh** Starts the container
+- **stop.sh** Stops the container
 
 In addition to the scripts included with each container, the utility directory contains additional useful shell scripts for working with docker.
 

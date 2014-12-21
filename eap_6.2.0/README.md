@@ -3,8 +3,8 @@
 Dockerfile & scripts to build an EAP 6.2.0 server container
 
 ## Components
- - Fedora 21
- - Java JDK 1.8
+ - Fedora 20
+ - Java JDK 1.7
  - JBoss EAP 6.2.0
 
 ## Scripts
