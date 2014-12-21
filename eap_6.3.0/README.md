@@ -11,3 +11,8 @@ Dockerfile & scripts to build an EAP 6.3.0 server container
  - **build.sh** Build the Container
  - **start.sh** Start the Container
  - **stop.sh** Stop the Container
+
+## Credentials
+The following credentials are set for the server
+ - **Management User** admin:admin123!
+

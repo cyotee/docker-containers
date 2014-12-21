@@ -1,2 +1,5 @@
 *.zip
 *.pid
+*.jar
+*.tar
+*.tar.gz
