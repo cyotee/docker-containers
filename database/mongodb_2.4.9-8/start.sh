@@ -1,17 +1,11 @@
 #!/bin/sh
 
 # Check if container is already started
-if [ -f docker_mongodb2498.pid ]; then
-    echo "Container is already started"
-    container_id=$(cat docker_mongodb2498.pid)
-    echo "Stoping container $container_id..."
-    docker stop $container_id
-    rm -f docker_mongodb2498.pid
-fi
+./stop.sh
 
 # Start MongoDB server container
 echo "Starting MongoDB server ..."
-image_mongodb=$(docker run -d -P bsaunder/mongodb)
+image_mongodb=$(docker run -d -P bsaunder/mongodb_2.4.9-8)
 ip_mongodb=$(docker inspect $image_mongodb | grep IPAddress | awk '{print $2}' | tr -d '",')
 echo $image_mongodb > docker_mongodb2498.pid
 

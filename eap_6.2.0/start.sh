@@ -1,22 +1,39 @@
 #!/bin/sh
 
 # Check if container is already started
-if [ -f docker.pid ]; then
-    echo "Container is already started"
-    container_id=$(cat docker.pid)
-    echo "Stoping container $container_id..."
-    docker stop $container_id
-    rm -f docker.pid
-fi
+./stop.sh
 
-# Start JBoss EAP container
-echo "Starting EAP domain controller ..."
-image_eap=$(docker run -d plopezse/eap-standalone)
-ip_eap=$(docker inspect $image_eap | grep IPAddress | awk '{print $2}' | tr -d '",')
-echo $image_eap > docker.pid
+# Start EAP server container
+echo "Starting EAP server ..."
+image=$(docker run -d -P bsaunder/eap_6.2-standalone)
+ip=$(docker inspect $image | grep IPAddress | awk '{print $2}' | tr -d '",')
+echo $image > docker_eap620standalone.pid
+
+# Get server Ports
+port_map=$(docker inspect -f '{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' $image)
+admin_port=$(echo $port_map | grep -Po '9990/tcp -> \K([0-9]+)')
+web_port=$(echo $port_map | grep -Po '8080/tcp -> \K([0-9]+)')
+
+# Wait until EAP starts
+let maxLoops=30 timeToSleep=5 success=0
+for (( try=0; try < maxLoops; ++try )); do
+  echo -n "."
+  if curl -s -o /dev/null http://localhost:$web_port/; then
+    success=1
+    break
+  fi
+  sleep $timeToSleep
+done
+echo ""
 
 # End
-echo "Installation finished"
-echo ""
-echo "Server started in $ip_eap"
+if (( success )); then
+  echo "Server started."
+  echo "Port Mapping: $port_map"
+  echo "EAP server started in http://localhost:$web_port/"
+  echo "Management console started at http://localhost:$admin_port/"
+else
+  echo "Server Start Failed"
+fi
 
+exit $(( 1-success ))

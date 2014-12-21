@@ -6,7 +6,7 @@ Dockerfile & scripts to build a MongoDB server container
  - MongoDB 2.4.9-8
 
 ## Scripts
- - **install.sh** Install the Container
+ - **build.sh** Install the Container
  - **start.sh** Start the Container
  - **stop.sh** Stop the Container
 

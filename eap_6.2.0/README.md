@@ -1,15 +1,13 @@
- JBoss EAP Docker container
-==========================
+# JBoss EAP 6.2.0 Docker Container
 
-Dockerfile & scripts to build an Apache HTTPD + Mod_cluster + JBoss EAP standalone container
+Dockerfile & scripts to build an EAP 6.2.0 server container
 
-Copy "jboss-eap-6.2.0.zip" into installs directory
+## Components
+ - Fedora 21
+ - Java JDK 1.8
+ - JBoss EAP 6.2.0
 
-Install:
-./install.sh
-
-Start container:
-./start.sh
-
-Stop container:
-./stop.sh
+## Scripts
+ - **build.sh** Build the Container
+ - **start.sh** Start the Container
+ - **stop.sh** Stop the Container
