@@ -3,3 +3,6 @@
 *.jar
 *.tar
 *.tar.gz
+installers
+installers/
+installers/*
