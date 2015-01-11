@@ -1,11 +1,11 @@
-# JBoss A-MQ 6.1.0 Docker Container
+# JBoss A-MQ 6.1.1 Docker Container
 
-Dockerfile & scripts to build an A-MQ 6.1.0 server container
+Dockerfile & scripts to build an A-MQ 6.1.1 server container
 
 ## Components
  - Fedora 20
  - Java JDK 1.7
- - JBoss A-MQ 6.1.0
+ - JBoss A-MQ 6.1.1
 
 ## Scripts
  - **build.sh** Build the Container
