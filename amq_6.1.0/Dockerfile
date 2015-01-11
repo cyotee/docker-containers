@@ -5,14 +5,16 @@ FROM jboss/base-jdk:7
 MAINTAINER "Bryan Saunders" "bsaunder@redhat.com"
 
 ### Install AMQ 6.1.0
+USER root
 ADD installs/jboss-a-mq-6.1.0.redhat-379.zip /tmp/jboss-a-mq-6.1.0.redhat-379.zip
 RUN unzip /tmp/jboss-a-mq-6.1.0.redhat-379.zip
 ADD docker_init.sh /opt/jboss/jboss-a-mq-6.1.0.redhat-379/docker_init.sh
 
 ### Set Environment
 ENV KARAF_HOME /opt/jboss/jboss-a-mq-6.1.0.redhat-379
-USER root
-RUN chown jboss:jboss $KARAF_HOME/docker_init.sh
+
+### Set Permissions
+RUN chown -R jboss:jboss $KARAF_HOME
 RUN chmod 755 $KARAF_HOME/docker_init.sh
 USER jboss
 
