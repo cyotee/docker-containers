@@ -16,7 +16,8 @@ RUN unzip /tmp/jboss-fuse-full-6.1.1.redhat-457.zip && \
     chmod 755 $KARAF_HOME/docker_init.sh && \
     sed -i "s/#admin/admin/" $KARAF_HOME/etc/users.properties && \
     sed -i "s/#activemq.jmx.user/activemq.jmx.user/" $KARAF_HOME/etc/system.properties && \
-    sed -i "s/#activemq.jmx.password/activemq.jmx.password/" $KARAF_HOME/etc/system.properties
+    sed -i "s/#activemq.jmx.password/activemq.jmx.password/" $KARAF_HOME/etc/system.properties && \
+    rm -f /tmp/jboss-fuse-full-6.1.1.redhat-457.zip
 
 #ADD docker_init.sh /opt/jboss/jboss-fuse-6.1.1.redhat-457/docker_init.sh
 
