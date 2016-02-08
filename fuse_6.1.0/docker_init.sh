@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Start Fuse
 echo "Starting fuse..."
 /opt/jboss/jboss-fuse-6.1.1.redhat-457/bin/start

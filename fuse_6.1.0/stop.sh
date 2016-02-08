@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Check if container is already started
 if [ -f docker_fuse611.pid ]; then
     echo "Container is already started"

@@ -1,5 +1,3 @@
-#!/bin/sh
-
 if [ ! -e installs/jboss-fuse-full-6.1.1.redhat-457.zip ]
 then
    echo "You should get the required Fuse binary before trying to build this image."

@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Check if container is already started
 ./stop.sh
 
@@ -13,7 +11,7 @@ echo $image > docker_fuse611.pid
 port_map=$(docker inspect -f '{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' $image)
 web_port=$(echo $port_map | grep -Po '8181/tcp -> \K([0-9]+)')
 
-# Wait until Fuse starts
+# Wait until Fuse start
 let maxLoops=30 timeToSleep=5 success=0
 for (( try=0; try < maxLoops; ++try )); do
   echo -n "."
