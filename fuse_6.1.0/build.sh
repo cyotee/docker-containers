@@ -1,4 +1,4 @@
-:!/bin/sh
+#!/bin/sh
 
 if [ ! -e installs/jboss-fuse-full-6.1.1.redhat-457.zip ]
 then
