@@ -28,5 +28,6 @@ RUN sed -i "s/#activemq.jmx.password/activemq.jmx.password/" $KARAF_HOME/etc/sys
 EXPOSE 22 8101 8181 44444 1099 61616 80 8080 
 
 ### Start Fuse
+ADD docker_init.sh /opt/jboss/jboss-fuse-6.1.1.redhat-457/docker_init.sh
 ENTRYPOINT $KARAF_HOME/docker_init.sh
 
