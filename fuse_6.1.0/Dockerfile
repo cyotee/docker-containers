@@ -8,7 +8,7 @@ MAINTAINER "Bryan Saunders" "bsaunder@redhat.com"
 USER root
 ADD installs/jboss-fuse-full-6.1.1.redhat-457.zip /tmp/jboss-fuse-full-6.1.1.redhat-457.zip
 RUN unzip /tmp/jboss-fuse-full-6.1.1.redhat-457.zip
-#ADD docker_init.sh /opt/jboss/jboss-fuse-6.1.1.redhat-457/docker_init.sh
+ADD docker_init.sh /opt/jboss/jboss-fuse-6.1.1.redhat-457/docker_init.sh
 
 ### Set Environment
 ENV KARAF_HOME /opt/jboss/jboss-fuse-6.1.1.redhat-457
