@@ -5,7 +5,7 @@
 
 # Start Fuse server container
 echo "Starting Fuse server ..."
-image=$(docker run -d -P bsaunder/fuse_6.1.1)
+image=$(docker run -d -P docker.io/cyotee/fuse_6.1.1)
 ip=$(docker inspect $image | grep IPAddress | awk '{print $2}' | tr -d '",')
 echo $image > docker_fuse611.pid
 
